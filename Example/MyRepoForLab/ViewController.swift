@@ -7,17 +7,26 @@
 //
 
 import UIKit
+import MyRepoForLab
 
-class ViewController: UIViewController {
+class TestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.navigationBar.isHidden = true
+        self.view.backgroundColor = .lightGray
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+            guard let navigationController = self?.navigationController else { return }
+            let repoControl: RepoViewControl = RepoViewControl()
+            repoControl.presentRepoView(parentViewController: navigationController)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }

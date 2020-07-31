@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'MyRepoForLab'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of MyRepoForLab.'
+  s.summary          = 'Merqueo - Summary for MyRepoForLab.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,16 +25,20 @@ TODO: Add long description of the pod here.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Miguel Angel Valencia' => 'miguelvalencia14@gmail.com' }
-  s.source           = { :git => 'https://github.com/Miguel Angel Valencia/MyRepoForLab.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/Miguel-Valencia/MyRepoForLab.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
-
-  s.source_files = 'MyRepoForLab/Classes/**/*'
+  s.swift_version = '5.0'
+  s.ios.deployment_target = '12.0'
+#  s.source_files = 'MyRepoForLab/Classes/**/*'
+  s.subspec 'Core' do |sp|
+    sp.source_files = 'MyRepoForLab/Classes/Core/**/*'
+    sp.frameworks = 'Foundation', 'UIKit'
+  end
   
-  # s.resource_bundles = {
-  #   'MyRepoForLab' => ['MyRepoForLab/Assets/*.png']
-  # }
+   s.resource_bundles = {
+     'Resources' => ['MyRepoForLab/Assets/image-placeholder.png', 'MyRepoForLab/Assets/black-close.png']
+   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
